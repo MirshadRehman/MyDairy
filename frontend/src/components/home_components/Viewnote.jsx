@@ -38,6 +38,7 @@ function Viewnote(){
             body:JSON.stringify({type,editedvalue,id}),
         })
     };
+    
     const deleteView=(id)=>{
         const delnoteid=id
         fetch('/app/del/',{
