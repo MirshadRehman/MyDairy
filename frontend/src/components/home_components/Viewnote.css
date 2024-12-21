@@ -1,7 +1,47 @@
 
 .allview{
-    padding: 20px 20px;
     background-color: #f2eecb;
-    width: 100%;
+    
     height: 100vh;
+    padding: 10px 10px;
+}
+.view{
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 8px;
+   padding: 20px 20px;
+   height: 380px;
+   display: flex;
+   flex-direction: column;
+   justify-content:safe;
+   font-size: 20px;
+}
+.view1 h2,p{
+    height: 50px;
+    border-radius: 5px;
+    padding: 5px 5px;
+}
+
+.viewtitle:hover,.viewnote:hover{
+    box-shadow: 0 0 2px;
+}
+
+.date{
+    padding: 0 5px;
+    font-size: 17px;
+    display: flex;
+    justify-content: space-between;
+}
+.date button{
+    text-align: center;
+    width: 100px;
+    height: 30px;
+    background-color: rgb(255, 76, 76);
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+}
+.date button:hover{
+    box-shadow: 0 0 4px;
+    background-color: red;
 }

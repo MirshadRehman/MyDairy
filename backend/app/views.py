@@ -111,7 +111,6 @@ def deleteNote(request):
         data=json.loads(request.body)
         noteid=data.get('delnoteid')
 
-        
         note=Note.objects.get(id=noteid)
         note.delete()
         return JsonResponse({
@@ -119,3 +118,17 @@ def deleteNote(request):
             'message':'Note deleted'
         })
     return JsonResponse({'error':'Invalid request'},status=405)
+
+@csrf_exempt
+def updateNote(request):
+    if request.method=='POST':
+        data=json.loads(request.body)
+        type=data.get('type')
+        value=data.get('editedvalue')
+        noteid=data.get('id')
+
+        note=Note.objects.get(id=noteid)
+        setattr(note,type,value)
+        note.save()
+        return JsonResponse({'success':True, 'message':'data updated'})
+    return JsonResponse({'error':'invalid request'})
