@@ -103,3 +103,19 @@ def viewNote(request):
             'note':list(note)
         })
     return JsonResponse({'error':'invalid'},status=405)
+
+
+@csrf_exempt
+def deleteNote(request):
+    if request.method=='POST':
+        data=json.loads(request.body)
+        noteid=data.get('delnoteid')
+
+        
+        note=Note.objects.get(id=noteid)
+        note.delete()
+        return JsonResponse({
+            'success':True,
+            'message':'Note deleted'
+        })
+    return JsonResponse({'error':'Invalid request'},status=405)
